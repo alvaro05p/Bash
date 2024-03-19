@@ -1,18 +1,25 @@
 #!/bin/bash
 
-read -p "Numero: " n
-
 cont=1
 
-for ((i = 1; i <= $n; i++)); do
+for ((i = $1; i >= 1; i--)); do
 
-	for ((i=1 ; i <= $cont; i++)); do
+	for((y = $i; y >= 1; y--)); do
 
-		echo -n $i
+		echo -n " "
+
 	done
 
-	echo ""
+	for((x = 1; x <= $cont; x++)); do
 
-	let "cont += 1"
+                echo -n "*"
+
+        done
+
+
+	((cont+=2))
+
+	echo
+
 done
 
