@@ -1,0 +1,54 @@
+1. Usuarios y grupos:
+Creación de usuario y grupo:
+
+sudo useradd estudiante1
+sudo groupadd clase
+sudo usermod -aG clase estudiante1
+2. Permisos de archivos:
+Creación de archivo y cambio de grupo propietario:
+
+touch archivo_clase.txt
+sudo chown :clase archivo_clase.txt
+3. Cambiar entre usuarios:
+Cambio a la cuenta de "estudiante1" y prueba de acceso a archivo:
+
+su estudiante1
+cat archivo_clase.txt  # Intenta leer el archivo
+echo "Nuevo contenido" > archivo_clase.txt  # Intenta escribir en el archivo
+exit  # Salir de la sesión de estudiante1
+
+4. Eliminar usuarios y grupos:
+Eliminación de usuario y grupo:
+
+sudo userdel estudiante1
+sudo groupdel clase
+
+5. Configurar sudo para "estudiante1":
+Edita el archivo sudoers con visudo y agrega la siguiente línea al final:
+
+estudiante1 ALL=(ALL) NOPASSWD: /usr/bin/apt-get update, /usr/bin/apt-get upgrade
+
+6. Crear "estudiante2" sin directorio home ni shell de inicio:
+
+sudo useradd --no-create-home --shell /bin/false estudiante2
+
+7. Crear "estudiante3" con shell específico:
+
+sudo useradd --shell /bin/tcsh estudiante3
+
+8. Crear "estudiante4" con UID y GID específicos:
+
+sudo useradd -u 3000 -g 3000 estudiante4
+
+9. Crear "estudiante5" con fecha de expiración de cuenta:
+
+sudo useradd -e 2024-03-31 estudiante5
+
+10. Crear usuario "prova" editando archivos:
+
+Editar los archivos /etc/passwd, /etc/shadow, /etc/group, y posiblemente /etc/gshadow para agregar el usuario "prova" con las características deseadas.
+
+11. Crear usuario "sento" con características específicas:
+
+sudo useradd -u 1070 -g 1040 -c "Vicent Tatay Mocholí" -d /SENIA/SI-DAW -s /bin/bash -e 2024-03-26 sento
+sudo passwd sento  # Establecer contraseña para el usuario "sento"
