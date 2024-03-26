@@ -17,7 +17,7 @@ case $opcion in
 		ls
 		;;
 	2)
-		ls | wc -f
+		ls -1 | wc -l
 		;;
 	3)
                 ;;
