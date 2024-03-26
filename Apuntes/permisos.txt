@@ -1,0 +1,38 @@
+#Explicacion de los permisos
+Tipos de permisos:
+
+Lectura (r): Permite ver el contenido de un archivo o listar el contenido de un directorio.
+Escritura (w): Permite modificar o eliminar el contenido de un archivo, así como crear, eliminar o renombrar archivos dentro de un directorio.
+Ejecución (x): Para archivos, permite ejecutar un programa o script. Para directorios, permite entrar al directorio y acceder a su contenido.
+Entidades de permisos:
+
+Propietario (owner): El usuario que creó el archivo o directorio. Tiene control total sobre los permisos.
+Grupo (group): Conjunto de usuarios que comparten ciertos permisos en archivos y directorios.
+Otros (others): Todos los demás usuarios en el sistema que no son el propietario ni están en el grupo del archivo.
+Visualización de permisos:
+
+Los permisos de un archivo o directorio se muestran al listar el contenido con ls -l.
+La salida muestra una serie de caracteres (por ejemplo, -rwxr-xr--), donde cada conjunto de tres caracteres representa los permisos del propietario, grupo y otros respectivamente.
+Por ejemplo, -rwxr-xr-- indica que el propietario tiene permisos de lectura, escritura y ejecución, el grupo tiene permisos de lectura y ejecución, y otros solo tienen permiso de lectura.
+Cambiar permisos:
+
+Se utilizan los comandos chmod para cambiar los permisos de un archivo o directorio.
+La notación octal (por ejemplo, chmod 755 archivo) asigna permisos en base a valores numéricos.
+La notación simbólica (por ejemplo, chmod u+x archivo) añade o elimina permisos usando letras y signos (+, -, =).
+
+Notación octal:
+
+Los permisos en la notación octal se representan como un número de tres dígitos (de 0 a 7) que corresponde a los permisos para el propietario, el grupo y otros respectivamente.
+Cada dígito representa una combinación de permisos. La conversión es la siguiente:
+0: Ningún permiso.
+1: Permiso de ejecución.
+2: Permiso de escritura.
+3: Permiso de escritura y ejecución.
+4: Permiso de lectura.
+5: Permiso de lectura y ejecución.
+6: Permiso de lectura y escritura.
+7: Permiso de lectura, escritura y ejecución.
+Ejemplos:
+
+755: Esto significa que el propietario tiene permisos de lectura, escritura y ejecución (7), y el grupo y otros solo tienen permisos de lectura y ejecución (5). Esto es común para archivos ejecutables en los que el propietario tiene control total y los demás solo pueden leer y ejecutar.
+rw-r-xr--: Este es un ejemplo de notación de permisos donde el propietario tiene permisos de lectura y escritura (rw-), el grupo tiene permisos de lectura y ejecución (r-x), y otros solo tienen permiso de lectura (r--). Esto podría ser un archivo común donde el propietario puede editar el contenido, el grupo puede ejecutarlo y otros solo pueden leerlo.
